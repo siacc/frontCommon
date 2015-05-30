@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="//g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+</head>
+<body>
+<div id="page">
+    <div style="margin-bottom: 2048px">往下拉，你会看见“返回顶部”都提示～</div>
+    <div id="gotoTop" style="display: none">回到顶部</div>
+</div>
+</body>
+<script>
+    KISSY.use("node",function(S){
+
+        /**
+         * 返回顶部
+         */
+        function goToTop() {
+            var minHeight = 200;
+            S.one('#gotoTop').on('click', function() {
+                S.one('html body').animate({
+                    scrollTop: 0}, 0.1, 'easeOut');
+            });
+            S.one(window).on('scroll', function() {
+                var s = S.one(window).scrollTop();
+                if(s > minHeight) {
+                    S.one('#gotoTop').show();
+                } else {
+                    S.one('#gotoTop').hide();
+                }
+            });
+        }
+        goToTop();
+    });
+</script>
+</html>
