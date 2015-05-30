@@ -1,0 +1,31 @@
+<!--简单版-->
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        a {
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-bottom: 2048px">往下拉，你会看见“返回顶部”都提示～</div>
+    <a href="#top" target="_self">返回顶部(#top)</a>
+    <a href="javascript:scroll(0,0)">返回顶部( scroll(0,0) )</a>
+    <a href="javascript:pageScroll()">返回顶部（动态滚动到顶部）</a>
+</body>
+
+
+<script>
+    function pageScroll(){
+        //向下滚动－100像素，也就是向上滚动100像素啦
+        window.scrollBy(0,-100);
+        scrolldelay = setTimeout('pageScroll()',100);
+        var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+        if(sTop==0) clearTimeout(scrolldelay);
+    }
+</script>
+</html>
